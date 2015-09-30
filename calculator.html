@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.ligne{
+				padding:2%;
+				float:left;
+				height:60%;
+				width:20%;
+				color:black;
+				background-color:#A1E4F4;
+				display:block;
+				text-align:center;
+				margin:1px;
+				font-weight:bold;
+				font-size:100%;
+			}
+			.colonne{
+				text-align:center;
+				width:100%;
+				display:block;
+			}
+		</style>
+	</head>
+	<body style="height:100%; width:100%; padding:0; margin:0;">
+		<div class="colonne">
+			<form>
+				<input style="text-align:right;" id="affiche" type="text" name="out" value="0" size="25%" />
+			</form>
+		</div>
+		
+		<div class="colonne">
+			<button id="un" class="ligne">1</button>
+			<button id="deux" class="ligne">2</button>
+			<button id="trois" class="ligne">3</button>
+			<button id="plus" class="ligne">+</button>
+		</div>
+		<div class="colonne">
+			<div class="colonne">
+			<button id="quatre" class="ligne">4</button>
+			<button id="cinq" class="ligne">5</button>
+			<button id="six" class="ligne">6</button>
+			<button id="moins" class="ligne">-</button>
+		</div>
+		<div class="colonne">
+			<div class="colonne">
+			<button id="sept" class="ligne">7</button>
+			<button id="huit" class="ligne">8</button>
+			<button id="neuf" class="ligne">9</button>
+			<button id="multiplication" class="ligne">*</button>
+		</div>
+		<div class="colonne">
+			<div class="colonne">
+			<button onclick="reset()" class="ligne">C</button>
+			<button id="zero" class="ligne">0</button>
+			<button onclick="reponse()" class="ligne">=</button>
+			<button id="division" class="ligne">/</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var tableau = [];
+	var affiche = document.getElementById('affiche');
+	var un = document.getElementById('un');
+	var deux = document.getElementById('deux');
+	var trois = document.getElementById('trois');
+	var plus = document.getElementById('plus');
+	
+	un.addEventListener('click', function(){
+		n=" ";
+		tableau.push("1");
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	deux.addEventListener('click', function(){
+		tableau.push("2");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	trois.addEventListener('click', function(){
+		tableau.push("3");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	quatre.addEventListener('click', function(){
+		tableau.push("4");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	cinq.addEventListener('click', function(){
+		tableau.push("5");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	six.addEventListener('click', function(){
+		tableau.push("6");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	sept.addEventListener('click', function(){
+		tableau.push("7");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	huit.addEventListener('click', function(){
+		tableau.push("8");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	neuf.addEventListener('click', function(){
+		tableau.push("9");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	zero.addEventListener('click', function(){
+		tableau.push("0");
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	}, false);
+	
+	plus.addEventListener('click', function(){
+		tableau.push('+');
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	},false);
+	
+	moins.addEventListener('click', function(){
+		tableau.push('-');
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	},false);
+	
+	multiplication.addEventListener('click', function(){
+		tableau.push('*');
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	},false);
+	
+	division.addEventListener('click', function(){
+		tableau.push('/');
+		n=" ";
+		for(i=0; i< tableau.length; i++){
+			n=n+tableau[i]
+		}
+		affiche.setAttribute('value',n);
+	},false);
+	
+	function reponse(){
+		var i = 0;
+		var N1='';
+		var N2='';
+		while(i< tableau.length){
+			signe = tableau[i];
+			switch(signe){
+				case '+': {
+					//alert(signe);
+					i=i+1;
+					while(i<=tableau.length){
+						signe = tableau[i];
+						N2 = N2+signe;
+						i=i+1;
+					}
+					rep = parseInt(N1) + parseInt(N2);
+					affiche.setAttribute('value',rep);
+					break;
+				}
+				case '-': {
+					//alert(signe);
+					i=i+1;
+					while(i<=tableau.length){
+						signe = tableau[i];
+						N2 = N2+signe;
+						i=i+1;
+					}
+					rep = parseInt(N1) - parseInt(N2);
+					affiche.setAttribute('value',rep);
+					break;
+				}
+				case '*': {
+					alert(signe);
+					i=i+1;
+					while(i<=tableau.length){
+						signe = tableau[i];
+						N2 = N2+signe;
+						i=i+1;
+					}
+					rep = parseInt(N1) * parseInt(N2);
+					affiche.setAttribute('value',rep);
+					break;
+				}
+				case '/': {
+					//alert(signe);
+					i=i+1;
+					while(i<=tableau.length){
+						signe = tableau[i];
+						N2 = N2+signe;
+						i=i+1;
+					}
+					if(parseInt(N2) != 0){
+						rep = parseInt(N1) / parseInt(N2)
+						affiche.setAttribute('value',rep);
+					}else{
+						affiche.setAttribute('value', 'impossible');
+					}
+					break;
+				}
+				default:{
+					N1=N1+signe;
+				}
+			}
+			i=i+1;
+			//console.log(reponse);
+		}
+	//console.log(tableau);
+	
+	}
+	
+	function reset(){
+		affiche.setAttribute('value','0');
+		tableau = [];
+		//console.log(tableau);
+	}
+</script>

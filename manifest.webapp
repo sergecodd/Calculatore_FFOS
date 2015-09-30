@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "name": "Calculator",
+  "description": "This app is a simple calculator",
+  "launch_path": "/calculator.html",
+  "orientation": ["portrait"],
+  "icons": {
+    "16": "calculator.png",
+    "48": "calculator.png",
+    "128":"calculator.png"
+  },
+  "developer": {
+    "name": "Sonfack serge",
+    "url": "http://sonfack.blogspot.com"
+  },
+  "locales": {
+    "en": {
+      "description": "Calculator",
+      "developer": {
+        "url": "http://sonfack.blogspot.com"
+      }
+    }
+  },
+    "fullscreen":true,
+  "default_locale": "en"
+}
